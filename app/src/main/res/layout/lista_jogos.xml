@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="@color/colorPrimary"
+    android:paddingLeft="16dp"
+    android:paddingTop="19dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="19dp"
+    tools:context=".activity.JogoActivity">
+
+    <ImageView
+        android:id="@+id/logo_clube_a"
+        android:layout_width="100dp"
+        android:layout_height="62dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/can"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/nomeCompeticao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/logo_clube_a"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:hint="Copa Da Barra - Master"
+        android:textColor="@android:color/white"
+        android:textColorHint="@color/white"
+        android:textSize="12sp"
+        android:textAlignment="center"
+        tools:ignore="RelativeOverlap" />
+
+    <TextView
+        android:id="@+id/vs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nomeCompeticao"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-3dp"
+        android:text="@string/vs"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/dataHoraPartida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/vs"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-4dp"
+        android:textAlignment="center"
+        android:hint="21/01/2019 : 15:30"
+        android:textColor="@android:color/white"
+        android:textColorHint="@color/white"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/nomeEstadio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dataHoraPartida"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-4dp"
+        android:textAlignment="center"
+        android:hint="@string/nome_estadio"
+        android:textColor="@android:color/white"
+        android:textColorHint="@color/white"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/logo_clube_b"
+        android:layout_width="100dp"
+        android:layout_height="62dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/escudo_desconhecido"
+        android:tint="@color/white"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/nomeClubeA"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/logo_clube_a"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="1dp"
+        android:hint="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/nomeClubeB"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/logo_clube_b"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="1dp"
+        android:hint="Juventus"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textColorHint="@color/white"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/numeroGolA"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/nomeClubeA"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="1dp"
+        android:hint="0"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/numeroGolB"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/nomeClubeB"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="1dp"
+        android:hint="0"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="14sp" />
+
+</RelativeLayout>

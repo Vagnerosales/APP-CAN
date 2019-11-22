@@ -1,9 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.ClubeActivity">
+    <LinearLayout
+        android:id="@+id/cabecalho_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/logo_clube"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/colorPrimary"
+            android:src="@drawable/can"
+            tools:ignore="ContentDescription" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line_home_text"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/cabecalho_home"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:background="@color/base" />
+
+    <TextView
+        android:id="@+id/historia"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/line_home_text"
+        android:gravity="center|left"
+        android:drawableRight="@drawable/ic_keyboard_arrow_right"
+        android:drawableTint="@color/colorPrimary"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="@string/historia"
+        android:textSize="16sp" />
+
+    <View
+        android:id="@+id/line_home"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/historia"
+        android:layout_gravity="center"
+        android:background="@color/base" />
+
+    <TextView
+        android:id="@+id/contatos"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/line_home"
+        android:gravity="center|left"
+        android:drawableRight="@drawable/ic_keyboard_arrow_right"
+        android:drawableTint="@color/colorPrimary"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="@string/contatos"
+        android:textSize="16sp" />
+
+    <View
+        android:id="@+id/line_home_contato"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/contatos"
+        android:layout_gravity="center"
+        android:background="@color/base" />
+
+</RelativeLayout>

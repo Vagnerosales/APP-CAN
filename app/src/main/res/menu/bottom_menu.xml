@@ -4,14 +4,14 @@
     <item
         android:id="@+id/menu_clube"
         android:title="@string/o_clube"
-        android:icon="@drawable/baseline_sports_soccer_white_24" />
+        android:icon="@drawable/football_shirt" />
     <item
         android:id="@+id/menu_jogadores"
         android:title="@string/jogadores"
-        android:icon="@drawable/baseline_person_white_24" />
+        android:icon="@drawable/football_player_kicking_ball" />
     <item
         android:id="@+id/menu_jogos"
         android:title="@string/jogos"
-        android:icon="@drawable/baseline_list_white_24" />
+        android:icon="@drawable/football_list_and_field_outline" />
 
 </menu>
