@@ -3,4 +3,72 @@
     <string name="o_clube">O Clube</string>
     <string name="jogadores">Jogadores</string>
     <string name="jogos">Jogos</string>
+    <string name="nova_conta">Ainda não tem uma conta? Crie uma.</string>
+    <string name="login">Login</string>
+    <string name="senha">Senha</string>
+    <string name="email">Email</string>
+    <string name="email_invalido">Informe um email válido!</string>
+    <string name="senha_invalida">A senha deve conter 6 caracteres.</string>
+    <string name="autenticando">Autenticando...</string>
+    <string name="cadastro_sucesso">Cadastro realizado com sucesso!</string>
+    <string name="login_invalido">Login inválido!</string>
+    <string name="categoria_invalido">Informe uma categoria!</string>
+    <string name="criando_conta">Criando conta...</string>
+    <string name="criando_partida">Salvando a partida...</string>
+    <string name="create_account">Criar Conta</string>
+    <string name="historia">História</string>
+    <string name="listar_jogos">Listar Jogos</string>
+    <string name="cadastrar_jogo">Cadastrar Jogo</string>
+    <string name="historia_conteudo">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.</string>
+    <string name="historia_conteudo_2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.</string>
+    <string name="historia_conteudo_3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.</string>
+    <string name="contatos">Contatos</string>
+    <string name="nome">Nome</string>
+    <string name="repetirSenha">Confirmar Senha</string>
+    <string name="ja_tem">Já tem cadastro? Faça o login!</string>
+    <string name="tres_caracteres">Informe pelo menos 3 caracteres</string>
+    <string name="email_valido">Digite um endereço de e-mail válido</string>
+    <string name="seis_numericos">Informe 6 caracteres numéricos</string>
+    <string name="senha_nao_confere">Senha não confere</string>
+    <string name="campo_vazio">Por favor preencha o campo.</string>
+    <string name="nome_estadio">Estádio Francisco Rosales</string>
+    <string name="endereco_logradouro">Endereço: Rua Nicolau Frederes, 185 - Centro</string>
+    <string name="endereco_cidade">Cidade: Barra do Ribeiro - RS</string>
+    <string-array name="perfis">
+        <item>Selecione o seu perfil</item>
+        <item>Torcedor</item>
+        <item>Jogador</item>
+        <item>Administrador</item>
+    </string-array>
+    <string-array name="categorias">
+        <item>Selecione uma categoria</item>
+        <item>Sub 7</item>
+        <item>Sub 9</item>
+        <item>Sub 11</item>
+        <item>Sub 13</item>
+        <item>Sub 15</item>
+        <item>Sub 17</item>
+        <item>Feminino</item>
+        <item>Principal</item>
+        <item>Master</item>
+        <item>Veteranos</item>
+    </string-array>
+    <string name="copy_right" translatable="false">Copyrights © %1$d</string>
+    <string name="texto_contatos" formatted="true">
+        <ul>
+        <li>Clube Atlético Nacional</li>\n
+        <li>Estádio Francisco Rosales</li>\n
+        <li>Rua Nicolau Frederes, 185 - Centro</li>\n
+        <li>Barra do Ribeiro - RS</li>
+        </ul>
+    </string>
+    <string name="usuario_logado">Usuário Logado</string>
+    <string name="vs">VS</string>
+    <string name="selecione_uma_data">Selecione uma data</string>
+    <string name="data_da_partida">Data do Jogo</string>
+    <string name="selecione_o_horario">Selecione o horário</string>
+    <string name="hor_rio_do_jogo">Hora do Jogo</string>
+    <string name="nome_do_clube_mandante">Nome do Clube (Mandante)</string>
+    <string name="nome_do_clube_visitante">Nome do Clube (Visitante)</string>
+    <string name="local_do_jogo">Local do Jogo</string>
 </resources>
