@@ -1,7 +1,10 @@
 package br.com.can.activity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import br.com.can.R;
+import br.com.can.base.Mail;
 import br.com.can.entity.Usuario;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -107,7 +111,7 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
                         // cadastroComFalha();
                         progressDialog.dismiss();
                     }
-                }, 3000);
+                }, 4000);
     }
 
     public void cadastroComSucesso() {
@@ -115,6 +119,55 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
         botaoCadastrar.setEnabled(true);
         setResult(RESULT_OK, null);
         this.onBackPressedComBundle();
+    }
+
+    private void enviarEmail() {
+        final String nome = this.novoUsuario.getNome();
+        final String email = this.novoUsuario.getEmail();
+        final String subject = "Confirmação cadastro de novo usuário APP CAN";
+        final String body = "<p><span style=\"color: rgb(51, 51, 51); font-family: &quot;Times New Roman&quot;, Times, serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 300; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;\">Prezado&nbsp;</span></p>" + nome + "\n" +
+                "<p><span style=\"font-size: 18px;\"><span style=\"font-family: 'Times New Roman',Times,serif;\"><span style=\"color: rgb(51, 51, 51); font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 300; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;\">O Clube Atlético Nacional&nbsp;</span> acaba de receber a sua solictação cadastral e te informa que você agora faz parte do cadastro de usuários do APP do Can.</span></span></p>\n" +
+                "<p><span style=\"font-size: 18px;\"><span style=\"font-family: 'Times New Roman',Times,serif;\">Faça um bom proveito do nosso APP.</span></span></p>\n" +
+                "<p><span style=\"font-size: 18px;\"><span style=\"font-family: 'Times New Roman',Times,serif;\">\n" +
+                "      <br>\n" +
+                "    </span></span></p>\n" +
+                "<p><span style=\"font-size: 18px;\"><span style=\"font-family: 'Times New Roman',Times,serif;\">Saudações do&nbsp;</span></span><span style=\"color: rgb(51, 51, 51); font-family: &quot;Times New Roman&quot;, Times, serif; font-size: 18px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 300; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;\">Clube Atlético Nacional &nbsp;o Clube do Povo!</span></p>";
+        if (!isOnline()) {
+            Toast.makeText(getApplicationContext(), "Não estava online para enviar e-mail!", Toast.LENGTH_SHORT).show();
+            System.exit(0);
+        }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Mail m = new Mail();
+                String[] toArr = {email};
+                m.setTo(toArr);
+                //m.setFrom("seunome@seuemail.com.br"); //caso queira enviar em nome de outro
+                m.setSubject(subject);
+                m.setBody(body);
+                try {
+                    //m.addAttachment("pathDoAnexo");//anexo opcional
+                    m.send();
+                } catch (RuntimeException rex) {
+                }//erro ignorado
+                catch (Exception e) {
+                    e.printStackTrace();
+                    System.exit(0);
+                }
+                Toast.makeText(getApplicationContext(), "Você receberá um email de confimação!", Toast.LENGTH_SHORT).show();
+            }
+        }).start();
+    }
+
+    public boolean isOnline() {
+        try {
+            ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo netInfo = cm.getActiveNetworkInfo();
+            return netInfo != null && netInfo.isConnectedOrConnecting();
+        } catch (Exception ex) {
+            Toast.makeText(getApplicationContext(), "Erro ao verificar se estava online! (" + ex.getMessage() + ")", Toast.LENGTH_SHORT).show();
+            return false;
+        }
     }
 
     public void cadastroComFalha() {
@@ -192,9 +245,10 @@ public class CadastroActivity extends AppCompatActivity implements AdapterView.O
         this.realm.beginTransaction();
         this.realm.insertOrUpdate(this.novoUsuario);
         this.realm.commitTransaction();
+        this.enviarEmail();
     }
 
-    public void onBackPressedComBundle(){
+    public void onBackPressedComBundle() {
         Bundle bundle = new Bundle();
         bundle.putSerializable("resultado", this.novoUsuario);
         //Chama a próxima Activity já com o objeto populado.
